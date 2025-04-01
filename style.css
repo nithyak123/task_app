@@ -61,6 +61,7 @@ button {
 ul {
     list-style: none;
     padding: 0;
+    font: Poppins;
 }
 
 ul li {
