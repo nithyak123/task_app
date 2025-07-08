@@ -16,8 +16,8 @@
     width: 100%;
     max-width: 540px;
     background: #fff;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
+    margin: 50px auto 20px;
+    padding: 30px 30px 30px;
     border-radius: 10px;
 }
 
@@ -31,11 +31,17 @@
 .row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* aligns items to the start/left */
     background: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+    /*padding-left: 20px; */
+    /*padding-right: 20px;*/
+    padding: 0;
+    margin-bottom: 0px;
+    /*gap: 15px;*/
+    gap: 0;
+    margin-top: 20px;
+    overflow: hidden;
 }
 
 input {
@@ -43,19 +49,78 @@ input {
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
+    padding: 12px 16px;
     font-size: 16px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
+
+#priority-input {
+    text-align: center;
+    border: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #f5f5f5f5;
+    font-size: 16px;
+    outline: none;
+    flex-shrink: 0;        /* Prevents shrinking */
+    width: 30px;           /* Set to whatever looks good — tweak this */
+    padding: 16px 0;
+    background-color: red;
+    /*-moz-appearance: textfield; /*hide default firefox number input */
+}
+.priority-input::-webkit-outer-spin-button,
+.priority-input::webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.priority-input:focus {
+    border-color: #469991;
+}
+
+.priority-badge {
+    position: absolute;
+    right: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f0f0f0;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 5px;
+    border-radius: 40%;
+    min-width: px;
+    text-align: center;
+    line-height: 1;
+    width: 32px;
+    /*margin-left: auto;
+    margin-right: 10px;*/
+}
+/* Priority coloring */
+.priority-badge.high { background-color: #cf5196; color: #43142e; }
+.priority-badge.medium { background-color: rgb(207, 144, 179); color: #43142e; }
+.priority-badge.low { background-color: rgb(251, 195, 224); color: #43142e; }
 
 button {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    /*padding: 10px 15px;*/
     background: #469991;
     color: #fff;
-    font-size: 16px;
+    font-size: 24px; /* changed from 16px*/
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 50%; /* changed from 40px - now circular */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, transform 0.2s ease; /* smooth transition for hover effects */
+}
+
+button:hover {
+    background: #3a7a73;
+    /*transform: translateY(-2px);*/ /*slight lift effect*/
 }
 
 ul {
@@ -75,6 +140,8 @@ ul li {
     align-items: center;
     word-wrap: break-word;
     white-space: normal;
+    /*margin-bottom: 3px;*/
+    flex-wrap: wrap;
 }
 
 ul li .circle {
@@ -99,9 +166,9 @@ ul li.checked .circle {
 }
 
 ul li span.remove-button {
-    position: absolute;
+    position: absolute; 
     right: 10px; /* Position the "X" at the right */
-    top: 50%; /* Center the "X" vertically */
+    top: 50%; /* Center vertically relative to the LI */
     transform: translateY(-50%); /* Perfect centering for "X" */
     width: 40px;
     height: 40px;
@@ -128,6 +195,12 @@ ul li span.remove-button:hover .circle {
 /* Editable Task */
 ul li span[contenteditable='true'] {
     outline: none;
+    margin-right: 15px;
+    padding-left: 15px;
+    display: inline-block;
+    max-width: calc(100% - 130px);
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 ul li span[contenteditable='true']:empty:before {
@@ -157,5 +230,4 @@ ul {
 
 ul li span:hover {
     color: #000; /* Make text stand out when hovered */
-}
 }
