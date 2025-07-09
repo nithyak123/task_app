@@ -102,14 +102,14 @@ function createTaskElement (taskText, isChecked, taskPriority){
     let priorityBadge = document.createElement("span");
     priorityBadge.classList.add("priority-badge");
     priorityBadge.innerHTML = taskPriority;
-    if (taskPriority >= 8){
-        priorityBadge.classList.add("high");
+    if (taskPriority >= 4){
+        priorityBadge.classList.add("low");
     }
-    else if (taskPriority >= 4){
+    else if (taskPriority >= 2){
         priorityBadge.classList.add("medium");
     }
     else {
-        priorityBadge.classList.add("low");
+        priorityBadge.classList.add("high");
     }
     li.appendChild(priorityBadge);
 
